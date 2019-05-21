@@ -60,8 +60,13 @@ with writer.saving(fig, "wind_diff_frances.mp4", 400):
     writer.grab_frame()
     plt.cla()
 
+plt.close()
+del cbar
 cmap = plt.cm.jet
 cmap.set_bad((0.2, 0.2, 0.2), 1.)
+fig = plt.figure(figsize=[12,7], dpi=400)
+fig.subplots_adjust(left=0.01, bottom=0, right=0.99, top=0.95, wspace=None, hspace=None)
+ax = plt.axes(projection=ccrs.Robinson(central_longitude=-70))
 with writer.saving(fig, "wind_frances.mp4", 400):
   for t in range(to, tf):
     print(t)
@@ -81,6 +86,13 @@ with writer.saving(fig, "wind_frances.mp4", 400):
     writer.grab_frame()
     plt.cla()
 
+plt.close()
+del cbar
+cmap = plt.cm.jet
+cmap.set_bad((0.2, 0.2, 0.2), 1.)
+fig = plt.figure(figsize=[12,7], dpi=400)
+fig.subplots_adjust(left=0.01, bottom=0, right=0.99, top=0.95, wspace=None, hspace=None)
+ax = plt.axes(projection=ccrs.Robinson(central_longitude=-70))
 with writer.saving(fig, "wind_filt_frances.mp4", 400):
   for t in range(to, tf):
     print(t)
